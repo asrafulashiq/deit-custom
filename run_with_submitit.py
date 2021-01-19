@@ -52,7 +52,7 @@ def get_shared_folder() -> Path:
     user = os.getenv("USER")
     if Path("checkpoint/").is_dir():
         p = Path(f"checkpoint/{user}/experiments")
-        p.mkdir(exist_ok=True)
+        p.mkdir(exist_ok=True, parents=True)
         return p
     raise RuntimeError("No shared folder available")
 
